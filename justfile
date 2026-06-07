@@ -1,4 +1,4 @@
-set windows-shell := ["pwsh.exe", "-NoLogo", "-Command"]
+﻿set windows-shell := ["pwsh.exe", "-NoLogo", "-Command"]
 
 export NAME := "Triton MCP"
 export DESC := "NVIDIA Triton Inference Server control plane -- model management, metrics, and inference over gRPC"
@@ -9,7 +9,7 @@ export HOST := "0.0.0.0"
 # --- Project Configuration ---
 
 default:
-    @pwsh.exe -NoProfile -ExecutionPolicy Bypass -File ../mcp-central-docs/scripts/just-dashboard.ps1 -Path .
+    @just --list
 
 # --- Lifecycle ---
 
@@ -69,3 +69,4 @@ e2e:
 
 health:
     curl http://localhost:11024/api/v1/status
+
