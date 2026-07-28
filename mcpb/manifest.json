@@ -1,0 +1,35 @@
+{
+  "manifest_version": "0.2",
+  "name": "triton-mcp",
+  "version": "0.1.0",
+  "description": "NVIDIA Triton Inference Server control plane -- model repository manipulation, VRAM monitoring, and inference over gRPC via FastMCP 3.2",
+  "author": { "name": "sandraschi" },
+  "server": {
+    "type": "python",
+    "entry_point": "run_server.py",
+    "mcp_config": {
+      "command": "uv",
+      "args": ["run","--directory","${PWD}","run_server.py"],
+      "env": {
+        "PYTHONPATH": "${PWD}/src",
+        "PYTHONUNBUFFERED": "1"
+      }
+    }
+  },
+  "tools": [
+    { "name": "triton_status", "description": "triton_status" },
+    { "name": "triton_server_metadata", "description": "triton_server_metadata" },
+    { "name": "api_status", "description": "api_status" },
+    { "name": "api_list_tools", "description": "api_list_tools" },
+    { "name": "get_model_config", "description": "get_model_config" },
+    { "name": "optimize_model_config", "description": "optimize_model_config" },
+    { "name": "list_model_configs", "description": "list_model_configs" },
+    { "name": "submit_inference", "description": "submit_inference" },
+    { "name": "get_gpu_metrics", "description": "get_gpu_metrics" },
+    { "name": "get_server_metrics", "description": "get_server_metrics" },
+    { "name": "list_models", "description": "list_models" },
+    { "name": "get_model_metadata", "description": "get_model_metadata" },
+    { "name": "load_model", "description": "load_model" },
+    { "name": "unload_model", "description": "unload_model" }
+  ]
+}

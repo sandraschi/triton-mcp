@@ -1,7 +1,5 @@
 """Smoke test for triton-mcp server imports and tool registration."""
 
-import pytest
-
 
 def test_import_package():
     from triton_mcp import __doc__ as pkg_doc
@@ -10,7 +8,7 @@ def test_import_package():
 
 
 def test_import_server():
-    from triton_mcp.server import app, TRITON_URL
+    from triton_mcp.server import TRITON_URL, app
 
     assert app is not None
     assert TRITON_URL is not None
@@ -18,10 +16,10 @@ def test_import_server():
 
 def test_import_tools():
     from triton_mcp.tools import (
-        register_model_tools,
         register_config_tools,
         register_inference_tools,
         register_metrics_tools,
+        register_model_tools,
     )
 
     assert callable(register_model_tools)
