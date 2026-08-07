@@ -70,3 +70,5 @@ e2e:
 
 health:
     curl http://localhost:11024/api/v1/status
+
+# Bootstrap: install dev deps + pre-commit hook
