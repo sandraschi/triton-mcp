@@ -15,9 +15,7 @@ default:
 # --- Lifecycle ---
 
 bootstrap:
-    uv sync --all-extras
-    Set-Location '{{justfile_directory()}}\webapp'
-    cmd /c npm install
+    uv sync --all-extras; Set-Location '{{justfile_directory()}}\webapp'; cmd /c npm install
 
 clean:
     if (Test-Path -Path "__pycache__") { Remove-Item -Recurse -Force "__pycache__" }; \
@@ -47,10 +45,7 @@ dev port=PORT:
 # --- Quality ---
 
 lint:
-    uv run ruff check src/
-    Set-Location '{{justfile_directory()}}\webapp'
-    npx @biomejs/biome ci .
-    npx tsc --noEmit
+    uv run ruff check src/; Set-Location '{{justfile_directory()}}\webapp'; npx @biomejs/biome ci .; npx tsc --noEmit
 
 fix:
     uv run ruff check src/ --fix
