@@ -37,7 +37,7 @@ for ($i = 0; $i -lt 60; $i++) {
 
 if (-not $BackendOnly) {
     $WebRoot = Join-Path $ScriptRoot "webapp"
-    Start-Process -NoNewWindow -FilePath "npx" -ArgumentList "vite --port $FrontendPort" -WorkingDirectory $WebRoot
+    Start-Process -NoNewWindow -FilePath "cmd.exe" -ArgumentList "/c","npx vite --port $FrontendPort" -WorkingDirectory $WebRoot
 
     if (-not $NoBrowser) {
         for ($i = 0; $i -lt 30; $i++) {
